@@ -1,0 +1,447 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	-webkit-tap-highlight-color: hsl(0, 0%, 5%);
+	-webkit-user-select: none;
+	user-select: none;
+	cursor: default;
+}
+
+html {
+	background: hsl(192.5deg 66.67% 92.94% / 47%);
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+}
+
+.ancho {
+	position: relative !important;
+	width: 100vw;
+	height: calc((10 / 20) * 112vw);
+	left: calc(50% - 50vw);
+	top: calc(50% - (((10 / 20) * 110vw) / 2));
+}
+
+@media (min-width: 1024px) and (max-width: 1200px) {
+	.ancho {
+		top: calc(50% - (((10 / 16) * 91vw) / 2));
+	}
+}
+
+.alto {
+	width: calc((20 / 10) * 88vh);
+	height: 100vh;
+	top: calc(50% - 50vh);
+	left: calc(50% - (((20 / 10) * 88vh) / 2));
+}
+
+.container {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	background-color: #ffffff;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.abs {
+	position: absolute;
+}
+
+.back {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.portada {
+	position: absolute;
+	background-size: cover;
+	width: 100%;
+	height: 100%;
+	background-image: url(../images/portada2.jpg);
+}
+
+.btn1 {
+	position: absolute;
+	width: 24.4%;
+    height: 14%;
+    right: 37.5%;
+    top: 78%;
+	cursor: pointer;
+}
+
+/* Animacion nube  */
+.nube {
+	position: absolute;
+	width: 100%;
+	left: 0%;
+	top: 0%;
+	animation: ondas 3s ease-in-out infinite;
+}
+
+@keyframes ondas {
+	0%,
+	100% {
+		transform: skewX(0deg);
+	}
+	50% {
+		transform: skewX(3deg);
+	}
+}
+
+.nube img {
+	width: 100%;
+	height: 100%;
+}
+/* Animacion nube  */
+
+/* Animacion avion */
+.avion {
+	position: absolute;
+	width: 23%;
+	right: -3.6%;
+	top: -2%;
+	animation: vueloCompleto 3s ease-in-out infinite;
+}
+
+/* Flotar + menear + vibración de despegue */
+@keyframes vueloCompleto {
+	0% {
+		transform: translate(0, 0) rotate(0deg);
+	}
+	10% {
+		transform: translate(2px, -3px) rotate(2deg);
+	}
+	25% {
+		transform: translate(-1px, -6px) rotate(3deg);
+	}
+	40% {
+		transform: translate(1px, -9px) rotate(0deg);
+	}
+	50% {
+		transform: translate(-2px, -12px) rotate(-2deg);
+	}
+	65% {
+		transform: translate(2px, -9px) rotate(-3deg);
+	}
+	75% {
+		transform: translate(-1px, -6px) rotate(0deg);
+	}
+	90% {
+		transform: translate(1px, -3px) rotate(2deg);
+	}
+	100% {
+		transform: translate(0, 0) rotate(0deg);
+	}
+}
+
+.avion img {
+	width: 100%;
+	height: 100%;
+}
+/* Animacion avion */
+
+/* animacion hondas */
+.hondas {
+	position: absolute;
+	width: 100%;
+	right: -0.1%;
+	top: 93%;
+	overflow: hidden;
+}
+
+.hondas img {
+	width: 110%; /* un poquito más ancha para evitar espacios blancos */
+	height: 100%;
+	display: block;
+	animation: gentleSide 12s ease-in-out infinite;
+}
+
+/* Movimiento suave de lado a lado */
+@keyframes gentleSide {
+	0%,
+	100% {
+		transform: translateX(0);
+	}
+	50% {
+		transform: translateX(
+			-5%
+		); /* se mueve solo un poquito a la izquierda */
+	}
+}
+/* animacion hondas */
+
+/* animacion bnoton */
+.boton {
+	position: absolute;
+	width: 8.3%;
+	right: 0.9%;
+	top: 85.9%;
+	z-index: 10;
+	cursor: pointer;
+}
+
+.boton img {
+	width: 100%;
+	height: 100%;
+	display: block;
+	animation: breathe 3s ease-in-out infinite;
+}
+
+/* Halo expansivo */
+.boton::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	border-radius: 12px;
+	background: rgba(255, 255, 255, 0.2);
+	filter: blur(12px);
+	transform: scale(0.9);
+	animation: halo 3s ease-in-out infinite;
+	z-index: -1;
+}
+
+@keyframes breathe {
+	0%,
+	100% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.07);
+	}
+}
+
+@keyframes halo {
+	0%,
+	100% {
+		transform: scale(0.9);
+		opacity: 0.3;
+	}
+	50% {
+		transform: scale(1.2);
+		opacity: 0.6;
+	}
+}
+/* animacion bnoton */
+
+/* animacion bnoton */
+.boton2 {
+	position: absolute;
+	width: 8.3%;
+	left: 0.9%;
+	top: 85.9%;
+	z-index: 10;
+	cursor: pointer;
+}
+
+.boton2 img {
+	width: 100%;
+	height: 100%;
+	display: block;
+	animation: breathe 3s ease-in-out infinite;
+}
+
+/* Halo expansivo */
+.boton2::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	border-radius: 12px;
+	background: rgba(255, 255, 255, 0.2);
+	filter: blur(12px);
+	transform: scale(0.9);
+	animation: halo 3s ease-in-out infinite;
+	z-index: -1;
+}
+
+@keyframes breathe {
+	0%,
+	100% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.07);
+	}
+}
+
+@keyframes halo {
+	0%,
+	100% {
+		transform: scale(0.9);
+		opacity: 0.3;
+	}
+	50% {
+		transform: scale(1.2);
+		opacity: 0.6;
+	}
+}
+/* animacion bnoton */
+
+/* hamburgue */
+.hamburguesa {
+	position: absolute;
+	width: 8%;
+	left: 2%;
+	top: 3%;
+}
+
+.hamburguesa img {
+	width: 100%;
+	height: 100%;
+}
+/* hamburgue */
+
+/* animacion tarros */
+.tarro1 {
+	position: absolute;
+	width: 17.4%;
+	left: 42.3%;
+	top: 10.1%;
+}
+
+.tarro1 img {
+	width: 100%;
+	height: 100%;
+}
+
+.tarro2 {
+	position: absolute;
+	width: 23.4%;
+	left: 50.9%;
+	top: 23.1%;
+}
+
+.tarro2 img {
+	width: 100%;
+	height: 100%;
+}
+
+.tarro3 {
+	position: absolute;
+	width: 22.6%;
+	left: 59.2%;
+	top: 38.9%;
+}
+
+.tarro3 img {
+	width: 100%;
+	height: 100%;
+}
+
+.tarro4 {
+	position: absolute;
+	width: 25%;
+	left: 44.4%;
+	top: 47.9%;
+}
+
+.tarro4 img {
+	width: 100%;
+	height: 100%;
+}
+
+.tarro5 {
+	position: absolute;
+	width: 26%;
+	left: 29.7%;
+	top: 41.5%;
+	z-index: 10;
+}
+
+.tarro5 img {
+	width: 100%;
+	height: 100%;
+}
+
+.tarro6 {
+	position: absolute;
+	width: 24.1%;
+	left: 17%;
+	top: 41.2%;
+}
+
+.tarro6 img {
+	width: 100%;
+	height: 100%;
+}
+
+.tarro7 {
+	position: absolute;
+	width: 16.7%;
+	left: 32.3%;
+	top: 24%;
+}
+
+.tarro7 img {
+	width: 100%;
+	height: 100%;
+}
+
+/* Base */
+.tarro1, .tarro2, .tarro3, .tarro4, .tarro5, .tarro6, .tarro7 {
+  position: absolute;
+  transform-origin: center bottom;
+}
+
+.tarro1 img, .tarro2 img, .tarro3 img, .tarro4 img,
+.tarro5 img, .tarro6 img, .tarro7 img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Animación principal: inclinación → caída → estabilización */
+@keyframes landSmooth {
+  0%   { transform: translateY(-25px) rotateZ(-4deg) scale(1); opacity: 0.9; }
+  70%  { transform: translateY(0) rotateZ(1deg) scale(0.98,1.02); opacity: 1; }
+  100% { transform: translateY(0) rotateZ(0) scale(1); opacity: 1; }
+}
+
+/* Destello suave diagonal */
+.tarro1::before, .tarro2::before, .tarro3::before, .tarro4::before,
+.tarro5::before, .tarro6::before, .tarro7::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(60deg,
+              transparent 45%,
+              rgba(255,255,255,.6) 50%,
+              transparent 55%);
+  transform: translateX(-120%) skewX(-12deg);
+  opacity: 0;
+  pointer-events: none;
+}
+@keyframes glintSmooth {
+  0%   { transform: translateX(-120%) skewX(-12deg); opacity: 0; }
+  30%  { opacity: .7; }
+  70%  { opacity: 0; }
+  100% { transform: translateX(120%) skewX(-12deg); opacity: 0; }
+}
+
+/* Clase de aterrizaje */
+.tarro--land {
+  animation: landSmooth 1s ease-out both;
+}
+.tarro--land::before {
+  animation: glintSmooth .9s ease-out both;
+}
+
+
+@media screen and (max-width: 500px) {
+}
+
+.mobile {
+	height: 100dvh;
+	align-items: center;
+}
+
+.mobile-container {
+	position: relative;
+}

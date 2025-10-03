@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="msapplication-tap-highlight" content="no" />
+		<meta name="viewport" content="initial-scale = 1, user-scalable = no" />
+		<link rel="stylesheet" href="./css/style7.css" />
+		<link rel="stylesheet" href="./css/menu.css" />
+		<link rel="stylesheet" href="./css/loader.css" />
+		<title>E-Learning Nutri Baby</title>
+	</head>
+
+	<body class="ancho">
+		<div class="loader">
+			<img src="./images/loader.png" alt="" />
+		</div>
+		<div id="container">
+			<div class="abs back portada"></div>
+
+			<!-- menu -->
+			<a href="./Nutribabay-01.html" class="boton">
+				<img src="./images/boton.png" alt="" />
+			</a>
+			<a href="./Nutribabay-06.html" class="boton2">
+				<img src="./images/atras.png" alt="" />
+			</a>
+
+			<!-- Audio -->
+			<audio id="sonido-clic">
+				<source src="./images/button.mp3" type="audio/mpeg" />
+			</audio>
+
+			<!-- imagenes animadas -->
+			<div class="nube">
+				<img src="./images/nube3.png" alt="" />
+			</div>
+
+			<div class="hondas">
+				<img src="./images/hondas.png" alt="ondas" />
+			</div>
+
+			<div class="plastilina">
+				<img src="./images/plastilina.png" alt="" />
+			</div>
+
+			<!-- menu hamburguesa -->
+			<div class="hamburguesa">
+				<img src="./images/hamburguesa.png" alt="" />
+			</div>
+
+			<div class="menu">
+				<div class="header">
+					<h1 class="title">contenidos</h1>
+					<button class="close-button">
+						<img src="./images/close-button.png" alt="" />
+					</button>
+				</div>
+				<div class="content"></div>
+			</div>
+
+			<!-- modal -->
+			<div class="openModal"></div>
+			<div class="modal" style="display: none; height: 100%">
+				<div class="cuadro">
+					<img src="./images/infografias/UP-R_Info_LactanciaYFormulas_E-Learning_16-09-25_LRP_page-0001.jpg" id="image" />
+				</div>
+				<div class="equis">
+					<img src="./images/equis.png" alt="">
+				</div>
+				<div class="closeModal"></div>
+			</div>
+			<!-- modal -->
+		</div>
+
+		<script src="https://eml.com.co/Ayuda_visual_Gamabenceno/js/jquery.min.js"></script>
+		<script src="https://eml.com.co/Ayuda_visual_Gamabenceno/js/jquery-3.2.1.min.js"></script>
+		<script src="./js/menu.js"></script>
+		<script src="./js/loader.js"></script>
+		<script src="./js/script.js"></script>
+
+		<!-- Script Sonido-->
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+				// selecciona .boton y .boton2
+				const enlaces = document.querySelectorAll('.boton, .boton2')
+				const sonido = document.getElementById('sonido-clic')
+
+				enlaces.forEach((el) => {
+					el.addEventListener('click', (e) => {
+						e.preventDefault()
+
+						// reproduce sonido
+						if (sonido) {
+							sonido.currentTime = 0
+							sonido.play().catch(() => {
+								/* silencio errores de autoplay */
+							})
+						}
+
+						// saca la URL: si es <a>, usa href; si es <button>, usa data-url
+						const url =
+							el.tagName === 'A'
+								? el.getAttribute('href')
+								: el.getAttribute('data-url')
+
+						if (!url) return // si no hay adónde ir, no hacemos nada
+
+						setTimeout(() => {
+							window.location.href = url
+						}, 800)
+					})
+				})
+			})
+		</script>
+	</body>
+</html>

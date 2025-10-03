@@ -1,0 +1,117 @@
+@font-face {
+	font-family: 'Nunito Bold', sans-serif;
+	src: url('./fonts/Nunito-Bold.ttf');
+}
+
+@font-face {
+	font-family: 'Nunito Medium', sans-serif;
+	src: url('./fonts/Nunito-Regular.ttf');
+}
+
+.menu {
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 50%;
+	height: 100%;
+	background-color: white;
+	border-top-right-radius: 50px;
+	border-bottom-right-radius: 50px;
+	border: 4px solid #52af8d;
+	z-index: 10;
+    display: none;
+}
+
+.menu .header {
+	padding-left: 20px;
+	padding-right: 10px;
+	padding-top: 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.menu .header .title {
+	background: linear-gradient(to bottom, #1a7cb7, #1e3767);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-family: 'Nunito Bold', sans-serif;
+	text-transform: uppercase;
+	font-size: 3.1vw;
+}
+
+.menu .header .close-button {
+	max-width: 125px;
+	background-color: transparent;
+	border: none;
+}
+
+.menu .header .close-button img {
+	width: 100%;
+	height: 100%;
+}
+
+.menu .content {
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.menu .content .menu-label {
+    font-size: 2vw;
+    font-family: 'Nunito Bold', sans-serif;
+    color: #46afaf;
+    border-bottom: 1px solid #4d4d4d;
+    padding-bottom: 5px;
+    font-weight: 400;
+    padding-top: 5px;
+    background-color: #ffffff;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.menu .content .content-data {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #4d4d4d;
+    padding-left: 20px;
+    transition: height 0.6s ease-in-out;
+    height: 0;
+    display: none;
+}
+
+.menu .content .content-data li.active, .menu .content .content-data li.active a {
+    font-size: 1.7vw;
+    color: #e81f76;
+    text-decoration: none;
+    font-family: 'Nunito Medium', sans-serif;
+    font-weight: 400;
+    padding-bottom: 5px;
+}
+
+.menu .content .content-data li, .menu .content .content-data li a {
+    font-size: 1.7vw;
+    color: #666666;
+    text-decoration: none;
+    font-family: 'Nunito Medium', sans-serif;
+    font-weight: 400;
+    padding-bottom: 5px;
+}
+
+@media (max-width: 500px) {
+	.menu {
+		width: 100%;
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+
+	.menu .header .close-button {
+		max-width: 12%;
+		background-color: transparent;
+		border: none;
+	}
+}
