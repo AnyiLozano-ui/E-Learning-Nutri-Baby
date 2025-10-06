@@ -25,6 +25,19 @@ const menu = [
 			},
 		],
 	},
+	{
+		label: 'Módulo 2. Desarrollo del sistema inmune en los primeros meses de vida',
+		children: [
+			{
+				label: 'Lactancia materna y desarrollo del sistema inmunológico',
+				link: '/Nutribabay-09.html',
+			},
+			{
+				label: 'Parto, lactancia y nutrición: claves para una microbiota equilibrada',
+				link: '/Nutribabay-10.html',
+			},
+		],
+	},
 ]
 
 let active = null
