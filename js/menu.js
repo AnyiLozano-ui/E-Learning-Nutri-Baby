@@ -38,6 +38,19 @@ const menu = [
 			},
 		],
 	},
+	{
+		label: 'Módulo 3. Paso a paso: fórmulas que acompañan el crecimiento',
+		children: [
+			{
+				label: 'Fórmulas infantiles: del nacimiento a los 3 años',
+				link: '/Nutribabay-12.html',
+			},
+			{
+				label: 'Nutrición a medida: una fórmula para cada etapa',
+				link: '/Nutribabay-13.html',
+			},
+		],
+	},
 ]
 
 let active = null
