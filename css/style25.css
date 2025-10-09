@@ -1,0 +1,236 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	-webkit-tap-highlight-color: hsl(0, 0%, 5%);
+	-webkit-user-select: none;
+	user-select: none;
+	cursor: default;
+}
+
+html {
+	background: hsl(192.5deg 66.67% 92.94% / 47%);
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+}
+
+.ancho {
+	position: relative !important;
+	width: 100vw;
+	height: calc((10 / 20) * 112vw);
+	left: calc(50% - 50vw);
+	top: calc(50% - (((10 / 20) * 110vw) / 2));
+}
+
+@media (min-width: 1024px) and (max-width: 1200px) {
+	.ancho {
+		top: calc(50% - (((10 / 16) * 91vw) / 2));
+	}
+}
+
+.alto {
+	width: calc((20 / 10) * 88vh);
+	height: 100vh;
+	top: calc(50% - 50vh);
+	left: calc(50% - (((20 / 10) * 88vh) / 2));
+}
+
+.container {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	background-color: #ffffff;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.abs {
+	position: absolute;
+}
+
+.back {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.portada {
+	position: absolute;
+	background-size: cover;
+	width: 100%;
+	height: 100%;
+	background-image: url(../images/portada25.jpg);
+}
+
+.btn1 {
+	position: absolute;
+	width: 7%;
+	height: 10%;
+	right: 1.5%;
+	top: 87%;
+	cursor: pointer;
+	z-index: 10;
+}
+
+.quantity {
+	font-size: 2.3vw;
+    position: absolute;
+    top: 25.6%;
+    left: 46.6%;
+    z-index: 100;
+    color: #1e3766;
+}
+
+/* Animacion nube  */
+.nube {
+	position: absolute;
+	width: 100%;
+	left: 0%;
+	top: 0%;
+	z-index: 100;
+	animation: ondas 3s ease-in-out infinite;
+}
+
+@keyframes ondas {
+	0%,
+	100% {
+		transform: skewX(0deg);
+	}
+	50% {
+		transform: skewX(3deg);
+	}
+}
+
+.nube img {
+	width: 100%;
+	height: 100%;
+}
+/* Animacion nube  */
+
+
+/* animacion hondas */
+.hondas {
+	position: absolute;
+	width: 100%;
+	right: -0.1%;
+	top: 93%;
+	overflow: hidden;
+}
+
+.hondas img {
+	width: 110%; /* un poquito más ancha para evitar espacios blancos */
+	height: 100%;
+	display: block;
+	animation: gentleSide 12s ease-in-out infinite;
+}
+
+/* Movimiento suave de lado a lado */
+@keyframes gentleSide {
+	0%,
+	100% {
+		transform: translateX(0);
+	}
+	50% {
+		transform: translateX(
+			-5%
+		); /* se mueve solo un poquito a la izquierda */
+	}
+}
+/* animacion hondas */
+
+/* animacion bnoton */
+.boton {
+	position: absolute;
+    width: 27.4%;
+    left: 15.6%;
+    top: 75.3%;
+	z-index: 100;
+	cursor: pointer;
+}
+
+.boton img {
+	width: 100%;
+	height: 100%;
+	display: block;
+	animation: breathe 3s ease-in-out infinite;
+}
+
+/* Halo expansivo */
+.boton::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	border-radius: 12px;
+	background: rgba(255, 255, 255, 0.2);
+	filter: blur(12px);
+	transform: scale(0.9);
+	animation: halo 3s ease-in-out infinite;
+	z-index: -1;
+}
+
+@keyframes breathe {
+	0%,
+	100% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.07);
+	}
+}
+
+@keyframes halo {
+	0%,
+	100% {
+		transform: scale(0.9);
+		opacity: 0.3;
+	}
+	50% {
+		transform: scale(1.2);
+		opacity: 0.6;
+	}
+}
+/* animacion bnoton */
+
+/* personaje */
+.personaje {
+	position: absolute;
+	width: 43%;
+    right: 0.7%;
+    top: 10.1%;
+	z-index: 10;
+	cursor: pointer;
+}
+
+.personaje img {
+	width: 100%;
+	height: 100%;
+	animation: breathing 3s ease-in-out infinite;
+}
+
+@keyframes breathing {
+	0%,
+	100% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.03);
+	}
+}
+
+@media screen and (max-width: 500px) {
+}
+
+.mobile {
+	height: 100dvh;
+	align-items: center;
+}
+
+.mobile-container {
+	position: relative;
+}

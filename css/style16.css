@@ -1,0 +1,782 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	-webkit-tap-highlight-color: hsl(0, 0%, 5%);
+	-webkit-user-select: none;
+	user-select: none;
+	cursor: default;
+}
+
+html {
+	background: hsl(192.5deg 66.67% 92.94% / 47%);
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+}
+
+.ancho {
+	position: relative !important;
+	width: 100vw;
+	height: calc((10 / 20) * 112vw);
+	left: calc(50% - 50vw);
+	top: calc(50% - (((10 / 20) * 110vw) / 2));
+}
+
+@media (min-width: 1024px) and (max-width: 1200px) {
+	.ancho {
+		top: calc(50% - (((10 / 16) * 91vw) / 2));
+	}
+}
+
+.alto {
+	width: calc((20 / 10) * 88vh);
+	height: 100vh;
+	top: calc(50% - 50vh);
+	left: calc(50% - (((20 / 10) * 88vh) / 2));
+}
+
+.container {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	background-color: #ffffff;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.abs {
+	position: absolute;
+}
+
+.back {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.portada {
+	position: absolute;
+	background-size: cover;
+	width: 100%;
+	height: 100%;
+	background-image: url(../images/portada16.jpg);
+}
+
+.btn1 {
+	position: absolute;
+	width: 7%;
+	height: 10%;
+	right: 1.5%;
+	top: 87%;
+	cursor: pointer;
+	z-index: 10;
+}
+
+/* Animacion nube  */
+.nube {
+	position: absolute;
+	width: 100%;
+	left: 0%;
+	top: 0%;
+	z-index: 1;
+	animation: ondas 3s ease-in-out infinite;
+}
+
+@keyframes ondas {
+	0%,
+	100% {
+		transform: skewX(0deg);
+	}
+	50% {
+		transform: skewX(3deg);
+	}
+}
+
+.nube img {
+	width: 100%;
+	height: 100%;
+}
+/* Animacion nube  */
+
+/* animacion hondas */
+.hondas {
+	position: absolute;
+	width: 100%;
+	right: -0.1%;
+	top: 93%;
+	overflow: hidden;
+}
+
+.hondas img {
+	width: 110%; /* un poquito más ancha para evitar espacios blancos */
+	height: 100%;
+	display: block;
+	animation: gentleSide 12s ease-in-out infinite;
+}
+
+/* Movimiento suave de lado a lado */
+@keyframes gentleSide {
+	0%,
+	100% {
+		transform: translateX(0);
+	}
+	50% {
+		transform: translateX(
+			-5%
+		); /* se mueve solo un poquito a la izquierda */
+	}
+}
+/* animacion hondas */
+
+/* Animacion preguntas */
+.pregunt1 {
+	position: absolute;
+	width: 44%;
+	right: 2.3%;
+	top: 7.3%;
+	z-index: 10;
+	animation: bounceCurious 1.8s ease-in-out infinite;
+	transform-origin: bottom center;
+}
+
+@keyframes bounceCurious {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-8px) rotate(-2deg);
+	}
+}
+
+.pregunt1 img {
+	width: 110%;
+	height: 100%;
+}
+
+/* preguntas correctas e incorrect */
+.correct {
+	position: absolute;
+	width: 49.6%;
+	left: 0%;
+	top: 36.7%;
+	z-index: 10;
+	cursor: pointer;
+	min-height: 6.1%;
+}
+
+.correct img {
+	width: 110%;
+	height: 100%;
+}
+
+.questnext {
+	position: absolute;
+	width: 6%;
+	left: 49%;
+	top: 64.7%;
+	z-index: 10;
+	cursor: pointer;
+}
+
+.questnext img {
+	width: 110%;
+	height: 100%;
+}
+
+/* incorrect */
+.incorrect {
+	position: absolute;
+	width: 54.8%;
+	height: 6.4%;
+	top: 27%;
+	right: 45.2%;
+	border-radius: 5px;
+}
+
+.incorrect1 {
+	position: absolute;
+	width: 54.8%;
+	height: 6.4%;
+	top: 46.2%;
+	right: 45.2%;
+	border-radius: 5px;
+}
+
+.incorrect2 {
+	position: absolute;
+	width: 54.8%;
+	height: 6.4%;
+	top: 56%;
+	right: 45.2%;
+	border-radius: 5px;
+}
+
+/* Animacion preguntas incorrec */
+.personincorrec {
+	position: absolute;
+	width: 35%;
+	right: 7.3%;
+	top: 13.3%;
+	z-index: 10;
+	display: inline-block;
+	pointer-events: none; /* la hace puramente visual */
+	animation: wobble 1.6s ease-in-out infinite;
+}
+
+/* La imagen */
+.personincorrec img {
+	width: 110%;
+	height: 100%;
+	display: block;
+	filter: drop-shadow(0 0 0 rgba(255, 0, 0, 0)); /* base limpia */
+	animation: glow 1.6s ease-in-out infinite;
+}
+
+/* Aura roja pulsante detrás */
+.personincorrec::before {
+	content: '';
+	position: absolute;
+	inset: -6%;
+	border-radius: 18px;
+	background: radial-gradient(
+		circle at 50% 55%,
+		rgba(255, 0, 64, 0.28),
+		rgba(255, 0, 64, 0) 60%
+	);
+	filter: blur(10px);
+	animation: pulse 1.6s ease-in-out infinite;
+	z-index: -1;
+}
+
+/* Scanlines + leve flicker encima */
+.personincorrec::after {
+	content: '';
+	position: absolute;
+	inset: -2%;
+	border-radius: 16px;
+	background: repeating-linear-gradient(
+		to bottom,
+		rgba(255, 255, 255, 0.06) 0px,
+		rgba(255, 255, 255, 0.06) 2px,
+		transparent 3px,
+		transparent 6px
+	);
+	mix-blend-mode: overlay;
+	opacity: 0.35;
+	animation: scan 2.2s linear infinite, flicker 1.8s ease-in-out infinite;
+	pointer-events: none;
+}
+
+/* --- Animaciones --- */
+
+/* Balanceo suave (wobble) */
+@keyframes wobble {
+	0%,
+	100% {
+		transform: rotate(0deg) translateY(0);
+	}
+	20% {
+		transform: rotate(-1.2deg) translateY(-1px);
+	}
+	50% {
+		transform: rotate(1.2deg) translateY(1px);
+	}
+	80% {
+		transform: rotate(-0.8deg) translateY(-1px);
+	}
+}
+
+/* Halo que late */
+@keyframes pulse {
+	0%,
+	100% {
+		transform: scale(0.98);
+		opacity: 0.55;
+	}
+	50% {
+		transform: scale(1.06);
+		opacity: 0.85;
+	}
+}
+
+/* Brillo rojo que respira */
+@keyframes glow {
+	0%,
+	100% {
+		filter: drop-shadow(0 0 0 rgba(255, 0, 64, 0));
+	}
+	50% {
+		filter: drop-shadow(0 0 14px rgba(255, 0, 64, 0.55));
+	}
+}
+
+/* Barrido de líneas */
+@keyframes scan {
+	from {
+		background-position-y: 0;
+	}
+	to {
+		background-position-y: 100px;
+	}
+}
+
+/* Micro-parpadeo */
+@keyframes flicker {
+	0%,
+	100% {
+		opacity: 0.35;
+	}
+	40% {
+		opacity: 0.25;
+	}
+	60% {
+		opacity: 0.45;
+	}
+}
+
+/* Animacion preguntas incorrec */
+.personcorrec {
+	position: absolute;
+	width: 28%;
+	right: 10.3%;
+	top: 18.3%;
+	z-index: 10;
+	animation: jumpCelebrate 1.2s ease-out;
+	pointer-events: none;
+}
+
+.personcorrec img {
+	width: 110%;
+	height: 100%;
+	display: block;
+}
+
+/* capa donde “viven” las partículas */
+.fireworks {
+	position: absolute;
+	inset: -10% -5% -15% -5%; /* un poco más grande que la imagen */
+	overflow: visible;
+	pointer-events: none;
+	z-index: 2;
+}
+
+/* cohete que sube */
+.rocket {
+	position: absolute;
+	width: 2px;
+	height: 14px;
+	background: linear-gradient(
+		to bottom,
+		rgba(255, 255, 255, 0.9),
+		rgba(255, 255, 255, 0)
+	);
+	transform: translate(-50%, -50%);
+	animation: rocketUp var(--t, 700ms) cubic-bezier(0.2, 0.65, 0.2, 1) forwards;
+	filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.8));
+}
+
+/* estela del cohete */
+.rocket::after {
+	content: '';
+	position: absolute;
+	bottom: -8px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 2px;
+	height: 26px;
+	background: radial-gradient(
+		circle,
+		rgba(255, 200, 120, 0.85),
+		rgba(255, 120, 0, 0)
+	);
+	filter: blur(1px);
+}
+
+/* partícula de explosión */
+.particle {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background: currentColor;
+	transform: translate(-50%, -50%);
+	animation: burst var(--bd, 900ms) ease-out forwards,
+		twinkle var(--bd, 900ms) ease-in-out;
+	box-shadow: 0 0 6px currentColor;
+}
+
+/* trayectorias con variables CSS (dx, dy) */
+@keyframes burst {
+	0% {
+		opacity: 1;
+		transform: translate(0, 0) scale(1);
+	}
+	85% {
+		opacity: 1;
+		transform: translate(calc(var(--dx) * 1px), calc(var(--dy) * 1px))
+			scale(0.9);
+	}
+	100% {
+		opacity: 0;
+		transform: translate(calc(var(--dx) * 1px), calc(var(--dy) * 1px))
+			scale(0.4);
+	}
+}
+
+/* cohete subiendo (de y2 a y1) */
+@keyframes rocketUp {
+	from {
+		transform: translate(-50%, var(--y2));
+		opacity: 0.9;
+	}
+	to {
+		transform: translate(-50%, var(--y1));
+		opacity: 1;
+	}
+}
+
+/* pequeño brillo titilante */
+@keyframes twinkle {
+	0%,
+	100% {
+		filter: drop-shadow(0 0 0 currentColor);
+	}
+	50% {
+		filter: drop-shadow(0 0 10px currentColor);
+	}
+}
+
+/* Tu animación existente */
+@keyframes jumpCelebrate {
+	0% {
+		transform: translateY(100%) scale(0.8) rotate(-5deg);
+		opacity: 0;
+	}
+	50% {
+		transform: translateY(-10%) scale(1.1) rotate(5deg);
+		opacity: 1;
+	}
+	70% {
+		transform: translateY(0%) scale(1);
+	}
+	90% {
+		transform: translateY(-5%) rotate(-3deg);
+	}
+	100% {
+		transform: translateY(0%) rotate(0deg);
+	}
+}
+
+/* Respeto a usuarios con reducción de movimiento */
+@media (prefers-reduced-motion: reduce) {
+	.personcorrec {
+		animation: none;
+	}
+	.rocket,
+	.particle {
+		animation: none;
+	}
+}
+
+/* Imagenes cuadirtos */
+.objecto1 {
+	position: absolute;
+	width: 4%;
+	left: 12.6%;
+	top: 66%;
+	z-index: 10;
+	cursor: pointer;
+}
+
+.objecto1 img {
+	width: 110%;
+	height: 100%;
+}
+
+.objecto2 {
+	position: absolute;
+	width: 6%;
+	left: 18.6%;
+	top: 66.3%;
+	z-index: 10;
+	cursor: pointer;
+}
+
+.objecto2 img {
+	width: 110%;
+	height: 100%;
+}
+
+.objecto3 {
+	position: absolute;
+	width: 4%;
+	left: 27.3%;
+	top: 65.9%;
+	z-index: 10;
+	cursor: pointer;
+}
+
+.objecto3 img {
+	width: 110%;
+	height: 100%;
+}
+
+.objecto4 {
+	position: absolute;
+	width: 6%;
+	left: 33.3%;
+	top: 67.5%;
+	z-index: 10;
+	cursor: pointer;
+}
+
+.objecto4 img {
+	width: 110%;
+	height: 100%;
+}
+
+.objecto5 {
+	position: absolute;
+	width: 4.5%;
+	left: 41.3%;
+	top: 64.5%;
+	z-index: 10;
+	cursor: pointer;
+}
+
+.objecto5 img {
+	width: 110%;
+	height: 100%;
+}
+
+.objecto6 {
+	position: absolute;
+	width: 6.5%;
+	left: 11.3%;
+	top: 77.1%;
+	z-index: 10;
+	cursor: pointer;
+}
+
+.objecto6 img {
+	width: 110%;
+	height: 100%;
+}
+
+.objecto7 {
+	position: absolute;
+	width: 5.5%;
+	left: 19.1%;
+	top: 78.6%;
+	z-index: 10;
+	cursor: pointer;
+}
+
+.objecto7 img {
+	width: 110%;
+	height: 100%;
+}
+
+.objecto8 {
+	position: absolute;
+	width: 5.5%;
+	left: 26.4%;
+	top: 78.6%;
+	z-index: 10;
+	cursor: pointer;
+}
+
+.objecto8 img {
+	width: 110%;
+	height: 100%;
+}
+
+.objecto9 {
+	position: absolute;
+	width: 4.6%;
+	left: 34.2%;
+	top: 78.3%;
+	z-index: 10;
+	cursor: pointer;
+}
+
+.objecto9 img {
+	width: 110%;
+	height: 100%;
+}
+
+.objecto10 {
+	position: absolute;
+	width: 4.6%;
+	left: 41.6%;
+	top: 77.5%;
+	z-index: 10;
+	cursor: pointer;
+}
+
+.objecto10 img {
+	width: 110%;
+	height: 100%;
+}
+
+/* Imagenes Equis */
+.Equis1 {
+	position: absolute;
+	width: 5%;
+	left: 12.1%;
+	top: 66%;
+	z-index: 10;
+	cursor: pointer;
+}
+
+.Equis1 img {
+	width: 110%;
+	height: 100%;
+}
+
+.Equis2 {
+	position: absolute;
+	width: 5%;
+	left: 19.3%;
+	top: 66%;
+	z-index: 10;
+	cursor: pointer;
+}
+
+.Equis2 img {
+	width: 110%;
+	height: 100%;
+}
+
+.Equis3 {
+	position: absolute;
+	width: 5%;
+	left: 26.7%;
+	top: 66%;
+	z-index: 10;
+	cursor: pointer;
+}
+
+.Equis3 img {
+	width: 110%;
+	height: 100%;
+}
+
+.Equis4 {
+	position: absolute;
+	width: 5%;
+	left: 33.9%;
+	top: 66%;
+	z-index: 10;
+	cursor: pointer;
+}
+
+.Equis4 img {
+	width: 110%;
+	height: 100%;
+}
+
+.Equis5 {
+	position: absolute;
+	width: 5%;
+	left: 41.3%;
+	top: 66%;
+	z-index: 10;
+	cursor: pointer;
+}
+
+.Equis5 img {
+	width: 110%;
+	height: 100%;
+}
+
+.Equis6 {
+	position: absolute;
+	width: 5%;
+	left: 12.1%;
+	top: 79.1%;
+	z-index: 10;
+	cursor: pointer;
+}
+
+.Equis6 img {
+	width: 110%;
+	height: 100%;
+}
+
+.Equis7 {
+	position: absolute;
+	width: 5%;
+	left: 19.3%;
+	top: 79.1%;
+	z-index: 10;
+	cursor: pointer;
+}
+
+.Equis7 img {
+	width: 110%;
+	height: 100%;
+}
+
+.Equis8 {
+	position: absolute;
+	width: 5%;
+	left: 26.7%;
+	top: 79.1%;
+	z-index: 10;
+	cursor: pointer;
+}
+
+.Equis8 img {
+	width: 110%;
+	height: 100%;
+}
+
+.Equis9 {
+	position: absolute;
+	width: 5%;
+	left: 33.9%;
+	top: 79.1%;
+	z-index: 10;
+	cursor: pointer;
+}
+
+.Equis9 img {
+	width: 110%;
+	height: 100%;
+}
+
+.Equis10 {
+	position: absolute;
+	width: 5%;
+	left: 41.3%;
+	top: 79.1%;
+	z-index: 10;
+	cursor: pointer;
+}
+
+.Equis10 img {
+	width: 110%;
+	height: 100%;
+}
+
+@media screen and (max-width: 500px) {
+}
+
+.mobile {
+	height: 100dvh;
+	align-items: center;
+}
+
+.mobile-container {
+	position: relative;
+}

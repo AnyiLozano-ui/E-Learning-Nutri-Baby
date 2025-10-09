@@ -1,0 +1,356 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	-webkit-tap-highlight-color: hsl(0, 0%, 5%);
+	-webkit-user-select: none;
+	user-select: none;
+	cursor: default;
+}
+
+html {
+	background: hsl(192.5deg 66.67% 92.94% / 47%);
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+}
+
+.ancho {
+	position: relative !important;
+	width: 100vw;
+	height: calc((10 / 20) * 112vw);
+	left: calc(50% - 50vw);
+	top: calc(50% - (((10 / 20) * 110vw) / 2));
+}
+
+@media (min-width: 1024px) and (max-width: 1200px) {
+	.ancho {
+		top: calc(50% - (((10 / 16) * 91vw) / 2));
+	}
+}
+
+.quantity {
+	font-size: 2.3vw;
+    position: absolute;
+    top: 31.5%;
+    left: 28.8%;
+    z-index: 100;
+    color: #1e3766;
+}
+
+.alto {
+	width: calc((20 / 10) * 88vh);
+	height: 100vh;
+	top: calc(50% - 50vh);
+	left: calc(50% - (((20 / 10) * 88vh) / 2));
+}
+
+.container {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	background-color: #ffffff;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.abs {
+	position: absolute;
+}
+
+.back {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.portada {
+	position: absolute;
+	background-size: cover;
+	width: 100%;
+	height: 100%;
+	background-image: url(../images/portada27.jpg);
+}
+
+.btn1 {
+	position: absolute;
+	width: 7%;
+	height: 10%;
+	right: 1.5%;
+	top: 87%;
+	cursor: pointer;
+	z-index: 10;
+}
+
+/* Animacion nube  */
+.nube {
+	position: absolute;
+	width: 100%;
+	left: 0%;
+	top: 0%;
+	z-index: 100;
+	animation: ondas 3s ease-in-out infinite;
+}
+
+@keyframes ondas {
+	0%,
+	100% {
+		transform: skewX(0deg);
+	}
+	50% {
+		transform: skewX(3deg);
+	}
+}
+
+.nube img {
+	width: 100%;
+	height: 100%;
+}
+/* Animacion nube  */
+
+
+/* animacion hondas */
+.hondas {
+	position: absolute;
+	width: 100%;
+	right: -0.1%;
+	top: 93%;
+	overflow: hidden;
+}
+
+.hondas img {
+	width: 110%; /* un poquito más ancha para evitar espacios blancos */
+	height: 100%;
+	display: block;
+	animation: gentleSide 12s ease-in-out infinite;
+}
+
+/* Movimiento suave de lado a lado */
+@keyframes gentleSide {
+	0%,
+	100% {
+		transform: translateX(0);
+	}
+	50% {
+		transform: translateX(
+			-5%
+		); /* se mueve solo un poquito a la izquierda */
+	}
+}
+/* animacion hondas */
+
+/* animacion bnoton */
+.boton {
+	position: absolute;
+    width: 16.4%;
+    left: 22.6%;
+    top: 76.3%;
+	z-index: 100;
+	cursor: pointer;
+}
+
+.boton img {
+	width: 100%;
+	height: 100%;
+	display: block;
+	animation: breathe 3s ease-in-out infinite;
+}
+
+/* Halo expansivo */
+.boton::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	border-radius: 12px;
+	background: rgba(255, 255, 255, 0.2);
+	filter: blur(12px);
+	transform: scale(0.9);
+	animation: halo 3s ease-in-out infinite;
+	z-index: -1;
+}
+
+@keyframes breathe {
+	0%,
+	100% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.07);
+	}
+}
+
+@keyframes halo {
+	0%,
+	100% {
+		transform: scale(0.9);
+		opacity: 0.3;
+	}
+	50% {
+		transform: scale(1.2);
+		opacity: 0.6;
+	}
+}
+/* animacion bnoton */
+
+/* personaje */
+.personaje {
+	position: absolute;
+	width: 37.8%;
+    right: 3.4%;
+    top: 11%;
+	z-index: 100;
+	animation: jumpCelebrate 1.2s ease-out;
+	pointer-events: none;
+}
+
+.personaje img {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+/* capa donde “viven” las partículas */
+.fireworks {
+	position: absolute;
+	inset: -10% -5% -15% -5%; /* un poco más grande que la imagen */
+	overflow: visible;
+	pointer-events: none;
+	z-index: 2;
+}
+
+/* cohete que sube */
+.rocket {
+	position: absolute;
+	width: 2px;
+	height: 14px;
+	background: linear-gradient(
+		to bottom,
+		rgba(255, 255, 255, 0.9),
+		rgba(255, 255, 255, 0)
+	);
+	transform: translate(-50%, -50%);
+	animation: rocketUp var(--t, 700ms) cubic-bezier(0.2, 0.65, 0.2, 1) forwards;
+	filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.8));
+}
+
+/* estela del cohete */
+.rocket::after {
+	content: '';
+	position: absolute;
+	bottom: -8px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 2px;
+	height: 26px;
+	background: radial-gradient(
+		circle,
+		rgba(255, 200, 120, 0.85),
+		rgba(255, 120, 0, 0)
+	);
+	filter: blur(1px);
+}
+
+/* partícula de explosión */
+.particle {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background: currentColor;
+	transform: translate(-50%, -50%);
+	animation: burst var(--bd, 900ms) ease-out forwards,
+		twinkle var(--bd, 900ms) ease-in-out;
+	box-shadow: 0 0 6px currentColor;
+}
+
+/* trayectorias con variables CSS (dx, dy) */
+@keyframes burst {
+	0% {
+		opacity: 1;
+		transform: translate(0, 0) scale(1);
+	}
+	85% {
+		opacity: 1;
+		transform: translate(calc(var(--dx) * 1px), calc(var(--dy) * 1px))
+			scale(0.9);
+	}
+	100% {
+		opacity: 0;
+		transform: translate(calc(var(--dx) * 1px), calc(var(--dy) * 1px))
+			scale(0.4);
+	}
+}
+
+/* cohete subiendo (de y2 a y1) */
+@keyframes rocketUp {
+	from {
+		transform: translate(-50%, var(--y2));
+		opacity: 0.9;
+	}
+	to {
+		transform: translate(-50%, var(--y1));
+		opacity: 1;
+	}
+}
+
+/* pequeño brillo titilante */
+@keyframes twinkle {
+	0%,
+	100% {
+		filter: drop-shadow(0 0 0 currentColor);
+	}
+	50% {
+		filter: drop-shadow(0 0 10px currentColor);
+	}
+}
+
+/* Tu animación existente */
+@keyframes jumpCelebrate {
+	0% {
+		transform: translateY(100%) scale(0.8) rotate(-5deg);
+		opacity: 0;
+	}
+	50% {
+		transform: translateY(-10%) scale(1.1) rotate(5deg);
+		opacity: 1;
+	}
+	70% {
+		transform: translateY(0%) scale(1);
+	}
+	90% {
+		transform: translateY(-5%) rotate(-3deg);
+	}
+	100% {
+		transform: translateY(0%) rotate(0deg);
+	}
+}
+
+/* Respeto a usuarios con reducción de movimiento */
+@media (prefers-reduced-motion: reduce) {
+	.personaje {
+		animation: none;
+	}
+	.rocket,
+	.particle {
+		animation: none;
+	}
+}
+
+@media screen and (max-width: 500px) {
+}
+
+.mobile {
+	height: 100dvh;
+	align-items: center;
+}
+
+.mobile-container {
+	position: relative;
+}
