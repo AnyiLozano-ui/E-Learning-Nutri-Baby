@@ -51,6 +51,10 @@ const menu = [
 			},
 		],
 	},
+	{
+		label: 'Evaluación interactiva: módulos 1, 2 y 3.',
+		link: '/Nutribabay-14.html',
+	},
 ]
 
 let active = null
@@ -132,6 +136,16 @@ const handleSetEventElement = (selector, index) => {
 }
 
 $(document).ready(() => {
+
+	// --- [AGREGADO 1] Normaliza ítems con link (sin children) ---
+	menu.forEach(m => {
+	  if ((!Array.isArray(m.children) || m.children.length === 0) && typeof m.link === 'string') {
+	    m.children = [{ label: m.label, link: m.link }];
+	    m.__direct = true; // marcar como "link directo"
+	  }
+	});
+	// -------------------------------------------------------------
+
 	let htmlData = ''
 	for (let i = 0; i < menu.length; i++) {
 		htmlData += handleSetItem(menu[i], i)
@@ -143,11 +157,37 @@ $(document).ready(() => {
 		handleSetEventElement(`#menu-${i}`, i)
 	}
 
-    $('.close-button').on('click', () => {
-        $('.menu').css('display', 'none')
-    })
+  $('.close-button').on('click', () => {
+      $('.menu').css('display', 'none')
+  })
 
-    $('.hamburguesa').on('click', () => {
-        $('.menu').css('display', 'block')
-    });
+  $('.hamburguesa').on('click', () => {
+      $('.menu').css('display', 'block')
+  })
+
+	// --- [AGREGADO 2] Convierte header en link y oculta desplegable ---
+	menu.forEach((m, i) => {
+	  if (!m.__direct) return;
+
+	  const $h3 = $(`#menu-${i}`);
+	  const $content = $(`.content-${i}`);
+
+	  // Desactivar toggle de acordeón en este ítem
+	  $h3.off('click');
+
+	  // Convertir el <h3> en enlace directo
+	  const href = '.' + (m.link || m.children?.[0]?.link || '#');
+	  if ($h3.find('a').length === 0) {
+	    $h3.wrapInner(`<a href="${href}" class="menu-directo" style="text-decoration:none;color:#084c8e;font-size: 1.7vw;"></a>`);
+	  } else {
+	    $h3.find('a').attr('href', href);
+	  }
+
+	  // Ocultar su contenedor de items
+	  $content.css('display', 'none').attr('aria-hidden', 'true');
+
+	  // Opcional: UX de link
+	  $h3.css('cursor', 'pointer');
+	});
+	// -----------------------------------------------------------------
 })
