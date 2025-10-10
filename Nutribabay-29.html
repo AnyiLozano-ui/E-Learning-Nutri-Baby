@@ -43,7 +43,16 @@
 			<div class="play-boton"></div>
 
 			<div class="video-2" id="video">
-				<video class="reproduc" id="reproduc" controls autoplay muted>
+				<video
+					class="reproduc"
+					id="reproduc"
+					autoplay
+					muted
+					playsinline
+					controls
+					controlslist="nodownload noplaybackrate noremoteplayback"
+					disablepictureinpicture
+					oncontextmenu="return false">
 					<source
 						src="https://eml.com.co/elearning_nutri_baby/lactosa_y_Formulas.mp4"
 						type="video/mp4" />
