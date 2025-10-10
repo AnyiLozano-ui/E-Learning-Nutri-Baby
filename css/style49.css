@@ -65,7 +65,7 @@ body {
 	background-size: cover;
 	width: 100%;
 	height: 100%;
-	background-image: url(../images/portada45.jpg);
+	background-image: url(../images/portada49.jpg);
 }
 
 .btn1 {
@@ -107,9 +107,9 @@ body {
 /* preguntas correctas e incorrect */
 .correct {
 	position: absolute;
-	width: 50%;
-	left: 0%;
-	top: 54%;
+	width: 51.3%;
+    left: 0%;
+    top: 48.4%;
 	z-index: 10;
 	cursor: pointer;
 	min-height: 6.1%;
@@ -123,8 +123,8 @@ body {
 .incorrect {
 	position: absolute;
 	width: 50%;
-	height: 5.6%;
-	top: 45.6%;
+    height: 7.6%;
+    top: 38.2%;
 	right: 50%;
 	border-radius: 5px;
 }
@@ -132,8 +132,8 @@ body {
 .incorrect1 {
 	position: absolute;
 	width: 50%;
-	height: 5.6%;
-	top: 63.1%;
+    height: 7.6%;
+	top: 64.1%;
 	right: 50%;
 	border-radius: 5px;
 }
@@ -141,8 +141,8 @@ body {
 .incorrect2 {
 	position: absolute;
 	width: 50%;
-	height: 5.6%;
-	top: 71.9%;
+    height: 7.6%;
+	top: 77.5%;
 	right: 50%;
 	border-radius: 5px;
 }

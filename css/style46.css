@@ -65,7 +65,7 @@ body {
 	background-size: cover;
 	width: 100%;
 	height: 100%;
-	background-image: url(../images/portada45.jpg);
+	background-image: url(../images/portada46.jpg);
 }
 
 .btn1 {
@@ -109,7 +109,7 @@ body {
 	position: absolute;
 	width: 50%;
 	left: 0%;
-	top: 54%;
+	top: 45.4%;
 	z-index: 10;
 	cursor: pointer;
 	min-height: 6.1%;
@@ -124,7 +124,7 @@ body {
 	position: absolute;
 	width: 50%;
 	height: 5.6%;
-	top: 45.6%;
+	top: 58%;
 	right: 50%;
 	border-radius: 5px;
 }
@@ -133,7 +133,7 @@ body {
 	position: absolute;
 	width: 50%;
 	height: 5.6%;
-	top: 63.1%;
+	top: 68.8%;
 	right: 50%;
 	border-radius: 5px;
 }
@@ -142,7 +142,7 @@ body {
 	position: absolute;
 	width: 50%;
 	height: 5.6%;
-	top: 71.9%;
+	top: 78.6%;
 	right: 50%;
 	border-radius: 5px;
 }

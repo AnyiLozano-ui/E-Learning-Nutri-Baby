@@ -8,7 +8,7 @@
 		<meta name="format-detection" content="telephone=no" />
 		<meta name="msapplication-tap-highlight" content="no" />
 		<meta name="viewport" content="initial-scale = 1, user-scalable = no" />
-		<link rel="stylesheet" href="./css/style45.css" />
+		<link rel="stylesheet" href="./css/style56.css" />
 		<link rel="stylesheet" href="./css/menu.css" />
 		<link rel="stylesheet" href="./css/loader.css" />
 		<title>E-Learning Nutri Baby</title>
@@ -21,46 +21,31 @@
 		<div id="container">
 			<div class="abs back portada"></div>
 
+			<!-- menu -->
+			<a href="./Nutribabay-01.html" class="boton">
+			</a>
+
 			<!-- Audio -->
 			<audio id="sonido-clic">
 				<source src="./images/button.mp3" type="audio/mpeg" />
 			</audio>
 
-			<audio id="correct">
-				<source src="./images/correct.mp3" type="audio/mpeg" />
-			</audio>
-
-			<audio id="incorrect">
-				<source src="./images/incorrect.mp3" type="audio/mpeg" />
-			</audio>
-
 			<!-- imagenes animadas -->
 			<div class="nube">
-				<img src="./images/nube5.png" alt="" />
+				<img src="./images/nube3.png" alt="" />
 			</div>
 
-			<!-- Respuesta pregunta correct -->
-			<div class="correct">
-				<img
-					src="./images/ModCorrect1.png"
-					alt=""
-					style="display: none" />
+			<div class="hondas">
+				<img src="./images/hondas.png" alt="ondas" />
 			</div>
 
-			<div class="personcorrec" style="display: none">
-				<img src="./images/correct1.png" alt="" />
+			<!-- animacion personaje -->
+			<div class="personaje">
+				<img src="./images/felix.png" alt="" />
 				<div class="fireworks"></div>
 			</div>
 
-			<!-- Respuestas preguntas incorrect -->
-			<div class="incorrect"></div>
-			<div class="incorrect1"></div>
-			<div class="incorrect2"></div>
-
-			<!-- personaje incorrecto -->
-			<div class="personincorrec" style="display: none">
-				<img src="./images/incorrect1.png" alt="" />
-			</div>
+			<span class="quantity"></span>
 		</div>
 
 		<script src="https://eml.com.co/Ayuda_visual_Gamabenceno/js/jquery.min.js"></script>
@@ -68,7 +53,6 @@
 		<script src="./js/menu.js"></script>
 		<script src="./js/loader.js"></script>
 		<script src="https://eml.com.co/Ayuda_visual_Gamabenceno/js/script.js"></script>
-		<script src="./js/quiz.module1.js"></script>
 
 		<!-- Script Sonido-->
 		<script>
@@ -86,10 +70,9 @@
 				}, 800)
 			})
 		</script>
-
 		<script>
 			;(function () {
-				const container = document.querySelector('.personcorrec')
+				const container = document.querySelector('.personaje')
 				const layer = container.querySelector('.fireworks')
 
 				// 🎨 Paleta de colores “fiesta”
@@ -180,6 +163,11 @@
 					}
 				}
 			})()
+			const responses = JSON.parse(localStorage.getItem('responses'))
+			$('.quantity').text(responses.filter((item) => item === 'Check').length)
+			if (responses.filter((item) => item === 'Check').length == 10) {
+				$('.quantity').css('left', '54.1%')
+			}
 		</script>
 	</body>
 </html>

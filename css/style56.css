@@ -29,6 +29,15 @@ html {
 	}
 }
 
+.quantity {
+	font-size: 2.9vw;
+    position: absolute;
+    top: 42.4%;
+	left: 57.8%;
+	z-index: 100;
+	color: #00701c;
+}
+
 .alto {
 	width: calc((20 / 10) * 88vh);
 	height: 100vh;
@@ -65,7 +74,7 @@ body {
 	background-size: cover;
 	width: 100%;
 	height: 100%;
-	background-image: url(../images/portada45.jpg);
+	background-image: url(../images/portada56.jpg);
 }
 
 .btn1 {
@@ -84,7 +93,7 @@ body {
 	width: 100%;
 	left: 0%;
 	top: 0%;
-	z-index: 1;
+	z-index: 100;
 	animation: ondas 3s ease-in-out infinite;
 }
 
@@ -104,185 +113,96 @@ body {
 }
 /* Animacion nube  */
 
-/* preguntas correctas e incorrect */
-.correct {
+/* animacion hondas */
+.hondas {
 	position: absolute;
-	width: 50%;
-	left: 0%;
-	top: 54%;
-	z-index: 10;
-	cursor: pointer;
-	min-height: 6.1%;
-}
-
-.correct img {
 	width: 100%;
-	height: 100%;
-}
-/* incorrect */
-.incorrect {
-	position: absolute;
-	width: 50%;
-	height: 5.6%;
-	top: 45.6%;
-	right: 50%;
-	border-radius: 5px;
+	right: -0.1%;
+	top: 93%;
+	overflow: hidden;
 }
 
-.incorrect1 {
-	position: absolute;
-	width: 50%;
-	height: 5.6%;
-	top: 63.1%;
-	right: 50%;
-	border-radius: 5px;
-}
-
-.incorrect2 {
-	position: absolute;
-	width: 50%;
-	height: 5.6%;
-	top: 71.9%;
-	right: 50%;
-	border-radius: 5px;
-}
-
-/* Animacion preguntas incorrec */
-.personincorrec {
-	position: absolute;
-	width: 38%;
-	right: 6.3%;
-	top: 23%;
-	z-index: 10;
-	display: inline-block;
-	pointer-events: none; /* la hace puramente visual */
-	animation: wobble 1.6s ease-in-out infinite;
-}
-
-/* La imagen */
-.personincorrec img {
-	width: 110%;
+.hondas img {
+	width: 110%; /* un poquito más ancha para evitar espacios blancos */
 	height: 100%;
 	display: block;
-	filter: drop-shadow(0 0 0 rgba(255, 0, 0, 0)); /* base limpia */
-	animation: glow 1.6s ease-in-out infinite;
+	animation: gentleSide 12s ease-in-out infinite;
 }
 
-/* Aura roja pulsante detrás */
-.personincorrec::before {
+/* Movimiento suave de lado a lado */
+@keyframes gentleSide {
+	0%,
+	100% {
+		transform: translateX(0);
+	}
+	50% {
+		transform: translateX(
+			-5%
+		); /* se mueve solo un poquito a la izquierda */
+	}
+}
+/* animacion hondas */
+
+/* animacion bnoton */
+.boton {
+	position: absolute;
+	width: 24.4%;
+    height: 13%;
+    right: 16.6%;
+    top: 77.3%;
+	z-index: 100;
+	cursor: pointer;
+}
+
+/* Halo expansivo */
+.boton::before {
 	content: '';
 	position: absolute;
-	inset: -6%;
-	border-radius: 18px;
-	background: radial-gradient(
-		circle at 50% 55%,
-		rgba(255, 0, 64, 0.28),
-		rgba(255, 0, 64, 0) 60%
-	);
-	filter: blur(10px);
-	animation: pulse 1.6s ease-in-out infinite;
+	inset: 0;
+	border-radius: 12px;
+	background: rgba(255, 255, 255, 0.2);
+	filter: blur(12px);
+	transform: scale(0.9);
+	animation: halo 3s ease-in-out infinite;
 	z-index: -1;
 }
 
-/* Scanlines + leve flicker encima */
-.personincorrec::after {
-	content: '';
+@keyframes breathe {
+	0%,
+	100% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.07);
+	}
+}
+
+@keyframes halo {
+	0%,
+	100% {
+		transform: scale(0.9);
+		opacity: 0.3;
+	}
+	50% {
+		transform: scale(1.2);
+		opacity: 0.6;
+	}
+}
+/* animacion bnoton */
+
+/* personaje */
+.personaje {
 	position: absolute;
-	inset: -2%;
-	border-radius: 16px;
-	background: repeating-linear-gradient(
-		to bottom,
-		rgba(255, 255, 255, 0.06) 0px,
-		rgba(255, 255, 255, 0.06) 2px,
-		transparent 3px,
-		transparent 6px
-	);
-	mix-blend-mode: overlay;
-	opacity: 0.35;
-	animation: scan 2.2s linear infinite, flicker 1.8s ease-in-out infinite;
-	pointer-events: none;
-}
-
-/* --- Animaciones --- */
-
-/* Balanceo suave (wobble) */
-@keyframes wobble {
-	0%,
-	100% {
-		transform: rotate(0deg) translateY(0);
-	}
-	20% {
-		transform: rotate(-1.2deg) translateY(-1px);
-	}
-	50% {
-		transform: rotate(1.2deg) translateY(1px);
-	}
-	80% {
-		transform: rotate(-0.8deg) translateY(-1px);
-	}
-}
-
-/* Halo que late */
-@keyframes pulse {
-	0%,
-	100% {
-		transform: scale(0.98);
-		opacity: 0.55;
-	}
-	50% {
-		transform: scale(1.06);
-		opacity: 0.85;
-	}
-}
-
-/* Brillo rojo que respira */
-@keyframes glow {
-	0%,
-	100% {
-		filter: drop-shadow(0 0 0 rgba(255, 0, 64, 0));
-	}
-	50% {
-		filter: drop-shadow(0 0 14px rgba(255, 0, 64, 0.55));
-	}
-}
-
-/* Barrido de líneas */
-@keyframes scan {
-	from {
-		background-position-y: 0;
-	}
-	to {
-		background-position-y: 100px;
-	}
-}
-
-/* Micro-parpadeo */
-@keyframes flicker {
-	0%,
-	100% {
-		opacity: 0.35;
-	}
-	40% {
-		opacity: 0.25;
-	}
-	60% {
-		opacity: 0.45;
-	}
-}
-
-/* Animacion preguntas correc */
-.personcorrec {
-	position: absolute;
-	width: 38%;
-	right: 6.3%;
-	top: 23.7%;
-	z-index: 10;
+	width: 32.8%;
+	left: 12.4%;
+	top: 11%;
+	z-index: 100;
 	animation: jumpCelebrate 1.2s ease-out;
 	pointer-events: none;
 }
 
-.personcorrec img {
-	width: 110%;
+.personaje img {
+	width: 100%;
 	height: 100%;
 	display: block;
 }
@@ -407,7 +327,7 @@ body {
 
 /* Respeto a usuarios con reducción de movimiento */
 @media (prefers-reduced-motion: reduce) {
-	.personcorrec {
+	.personaje {
 		animation: none;
 	}
 	.rocket,

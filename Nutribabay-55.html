@@ -8,7 +8,7 @@
 		<meta name="format-detection" content="telephone=no" />
 		<meta name="msapplication-tap-highlight" content="no" />
 		<meta name="viewport" content="initial-scale = 1, user-scalable = no" />
-		<link rel="stylesheet" href="./css/style44.css" />
+		<link rel="stylesheet" href="./css/style55.css" />
 		<link rel="stylesheet" href="./css/menu.css" />
 		<link rel="stylesheet" href="./css/loader.css" />
 		<title>E-Learning Nutri Baby</title>
@@ -22,9 +22,7 @@
 			<div class="abs back portada"></div>
 
 			<!-- menu -->
-			<a href="./Nutribabay-45.html" class="boton">
-				<img src="./images/inciar2.png" alt="" />
-			</a>
+			<a href="./Nutribabay-44.html" class="boton"> </a>
 
 			<!-- Audio -->
 			<audio id="sonido-clic">
@@ -33,26 +31,19 @@
 
 			<!-- imagenes animadas -->
 			<div class="nube">
-				<img src="./images/nube5.png" alt="" />
+				<img src="./images/nube3.png" alt="" />
 			</div>
 
 			<div class="hondas">
-				<img src="./images/hondas.png" alt="ondas" />
+				<img src="./images/hondarosada.png" alt="ondas" />
 			</div>
 
 			<!-- animacion personaje -->
-			 <div class="personaje">
-				<img src="./images/bebe1.png" alt="">
-			 </div>
-			  <div class="personaje1">
-				<img src="./images/bebe22.png" alt="">
-			 </div>
-			 <div class="personaje2">
-				<img src="./images/bebe3.png" alt="">
-			 </div>
-			  <div class="personaje3">
-				<img src="./images/bebe4.png" alt="">
-			 </div>
+			<div class="personaje">
+				<img src="./images/triste.png" alt="" />
+			</div>
+
+			<span class="quantity"></span>
 		</div>
 
 		<script src="https://eml.com.co/Ayuda_visual_Gamabenceno/js/jquery.min.js"></script>
@@ -60,7 +51,6 @@
 		<script src="./js/menu.js"></script>
 		<script src="./js/loader.js"></script>
 		<script src="https://eml.com.co/Ayuda_visual_Gamabenceno/js/script.js"></script>
-		<script src="./js/quiz.module1.js"></script>
 
 		<!-- Script Sonido-->
 		<script>
@@ -77,6 +67,11 @@
 					window.location.href = enlace.href
 				}, 800)
 			})
+
+			const responses = JSON.parse(localStorage.getItem('responses'))
+			$('.quantity').text(
+				responses.filter((item) => item === 'Check').length
+			)
 		</script>
 	</body>
 </html>
