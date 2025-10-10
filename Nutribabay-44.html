@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="msapplication-tap-highlight" content="no" />
+		<meta name="viewport" content="initial-scale = 1, user-scalable = no" />
+		<link rel="stylesheet" href="./css/style44.css" />
+		<link rel="stylesheet" href="./css/menu.css" />
+		<link rel="stylesheet" href="./css/loader.css" />
+		<title>E-Learning Nutri Baby</title>
+	</head>
+
+	<body class="ancho">
+		<div class="loader">
+			<img src="./images/loader.png" alt="" />
+		</div>
+		<div id="container">
+			<div class="abs back portada"></div>
+
+			<!-- menu -->
+			<a href="./Nutribabay-15.html" class="boton">
+				<img src="./images/inciar2.png" alt="" />
+			</a>
+
+			<!-- Audio -->
+			<audio id="sonido-clic">
+				<source src="./images/button.mp3" type="audio/mpeg" />
+			</audio>
+
+			<!-- imagenes animadas -->
+			<div class="nube">
+				<img src="./images/nube5.png" alt="" />
+			</div>
+
+			<div class="hondas">
+				<img src="./images/hondas.png" alt="ondas" />
+			</div>
+
+			<!-- animacion personaje -->
+			 <div class="personaje">
+				<img src="./images/bebe1.png" alt="">
+			 </div>
+			  <div class="personaje1">
+				<img src="./images/bebe22.png" alt="">
+			 </div>
+			 <div class="personaje2">
+				<img src="./images/bebe3.png" alt="">
+			 </div>
+			  <div class="personaje3">
+				<img src="./images/bebe4.png" alt="">
+			 </div>
+		</div>
+
+		<script src="https://eml.com.co/Ayuda_visual_Gamabenceno/js/jquery.min.js"></script>
+		<script src="https://eml.com.co/Ayuda_visual_Gamabenceno/js/jquery-3.2.1.min.js"></script>
+		<script src="./js/menu.js"></script>
+		<script src="./js/loader.js"></script>
+		<script src="https://eml.com.co/Ayuda_visual_Gamabenceno/js/script.js"></script>
+
+		<!-- Script Sonido-->
+		<script>
+			const enlace = document.querySelector('.boton')
+			const sonido = document.getElementById('sonido-clic')
+
+			enlace.addEventListener('click', function (event) {
+				event.preventDefault()
+				sonido.currentTime = 0
+				sonido.play()
+
+				// Espera un poco antes de redirigir
+				setTimeout(() => {
+					window.location.href = enlace.href
+				}, 800)
+			})
+		</script>
+	</body>
+</html>

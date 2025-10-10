@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="msapplication-tap-highlight" content="no" />
+		<meta name="viewport" content="initial-scale = 1, user-scalable = no" />
+		<link rel="stylesheet" href="./css/style45.css" />
+		<link rel="stylesheet" href="./css/menu.css" />
+		<link rel="stylesheet" href="./css/loader.css" />
+		<title>E-Learning Nutri Baby</title>
+	</head>
+
+	<body class="ancho">
+		<div class="loader">
+			<img src="./images/loader.png" alt="" />
+		</div>
+		<div id="container">
+			<div class="abs back portada"></div>
+
+			<!-- Audio -->
+			<audio id="sonido-clic">
+				<source src="./images/button.mp3" type="audio/mpeg" />
+			</audio>
+
+			<audio id="correct">
+				<source src="./images/correct.mp3" type="audio/mpeg" />
+			</audio>
+
+			<audio id="incorrect">
+				<source src="./images/incorrect.mp3" type="audio/mpeg" />
+			</audio>
+
+			<!-- imagenes animadas -->
+			<div class="nube">
+				<img src="./images/nube5.png" alt="" />
+			</div>
+
+			<!-- Respuesta pregunta correct -->
+			<div class="correct">
+				<img src="./images/correct.png" alt="" style="display: none" />
+			</div>
+
+			<div class="personcorrec" style="display: none">
+				<img src="./images/correct1.png" alt="" />
+				<div class="fireworks"></div>
+			</div>
+
+			<!-- Respuestas preguntas incorrect -->
+			<div class="incorrect"></div>
+			<div class="incorrect1"></div>
+			<div class="incorrect2"></div>
+
+			<!-- personaje incorrecto -->
+			<div class="personincorrec" style="display: none">
+				<img src="./images/incorrect1.png" alt="" />
+			</div>
+
+			<!-- Boton next questions -->
+			<div class="questnext" style="display: none">
+				<img src="./images/next.png" alt="" />
+			</div>
+
+			<!-- Personajes cuadritos -->
+			<div class="objecto1" style="display: none">
+				<img src="./images/vaca.png" alt="" />
+			</div>
+			<div class="objecto2" style="display: none">
+				<img src="./images/libe.png" alt="" />
+			</div>
+			<div class="objecto3" style="display: none">
+				<img src="./images/tarro.png" alt="" />
+			</div>
+			<div class="objecto4" style="display: none">
+				<img src="./images/metal.png" alt="" />
+			</div>
+			<div class="objecto5" style="display: none">
+				<img src="./images/circu.png" alt="" />
+			</div>
+			<div class="objecto6" style="display: none">
+				<img src="./images/vegetales.png" alt="" />
+			</div>
+			<div class="objecto7" style="display: none">
+				<img src="./images/pastas.png" alt="" />
+			</div>
+			<div class="objecto8" style="display: none">
+				<img src="./images/cora.png" alt="" />
+			</div>
+			<div class="objecto9" style="display: none">
+				<img src="./images/coal.png" alt="" />
+			</div>
+			<div class="objecto10" style="display: none">
+				<img src="./images/jarra.png" alt="" />
+			</div>
+
+			<!-- X incorrects -->
+			<div class="Equis1" style="display: none">
+				<img src="./images/equis-incorrect.png" alt="" />
+			</div>
+			<div class="Equis2" style="display: none">
+				<img src="./images/equis-incorrect.png" alt="" />
+			</div>
+			<div class="Equis3" style="display: none">
+				<img src="./images/equis-incorrect.png" alt="" />
+			</div>
+			<div class="Equis4" style="display: none">
+				<img src="./images/equis-incorrect.png" alt="" />
+			</div>
+			<div class="Equis5" style="display: none">
+				<img src="./images/equis-incorrect.png" alt="" />
+			</div>
+			<div class="Equis6" style="display: none">
+				<img src="./images/equis-incorrect.png" alt="" />
+			</div>
+			<div class="Equis7" style="display: none">
+				<img src="./images/equis-incorrect.png" alt="" />
+			</div>
+			<div class="Equis8" style="display: none">
+				<img src="./images/equis-incorrect.png" alt="" />
+			</div>
+			<div class="Equis9" style="display: none">
+				<img src="./images/equis-incorrect.png" alt="" />
+			</div>
+			<div class="Equis10" style="display: none">
+				<img src="./images/equis-incorrect.png" alt="" />
+			</div>
+		</div>
+
+		<script src="https://eml.com.co/Ayuda_visual_Gamabenceno/js/jquery.min.js"></script>
+		<script src="https://eml.com.co/Ayuda_visual_Gamabenceno/js/jquery-3.2.1.min.js"></script>
+		<script src="./js/menu.js"></script>
+		<script src="./js/loader.js"></script>
+		<script src="https://eml.com.co/Ayuda_visual_Gamabenceno/js/script.js"></script>
+
+		<!-- Script Sonido-->
+		<script>
+			const enlace = document.querySelector('.boton')
+			const sonido = document.getElementById('sonido-clic')
+
+			enlace.addEventListener('click', function (event) {
+				event.preventDefault()
+				sonido.currentTime = 0
+				sonido.play()
+
+				// Espera un poco antes de redirigir
+				setTimeout(() => {
+					window.location.href = enlace.href
+				}, 800)
+			})
+		</script>
+
+		<script>
+			;(function () {
+				const container = document.querySelector('.personcorrec')
+				const layer = container.querySelector('.fireworks')
+
+				// 🎨 Paleta de colores “fiesta”
+				const COLORS = [
+					'#47afb0',
+					'#baebd8',
+					'#BD10E0',
+					'#50E3C2',
+					'#2ECC71',
+					'#ffb8db',
+					'#47afb0',
+					'#baebd8',
+				]
+
+				// 🚀 Lanza fuegos artificiales infinitamente cada cierto tiempo
+				setInterval(() => {
+					// 3 ráfagas escalonadas (puedes ajustar tiempos o cantidad)
+					launchFirework({ bursts: 1 })
+					setTimeout(() => launchFirework({ bursts: 1 }), 220)
+					setTimeout(() => launchFirework({ bursts: 1 }), 440)
+				}, 2000) // cada 2 segundos se repite
+
+				// 🎆 API simple para lanzar pirotecnia
+				function launchFirework({ bursts = 1 } = {}) {
+					for (let b = 0; b < bursts; b++) {
+						// Punto de disparo (abajo, x al azar dentro del ancho visual)
+						const x = Math.random() * 80 + 10 // 10%–90% del ancho
+						const yStart = 110
+						const yPeak = Math.random() * 45 + 10 // altura (10%–55%)
+
+						// crear cohete
+						const rocket = document.createElement('div')
+						rocket.className = 'rocket'
+						rocket.style.left = x + '%'
+						rocket.style.setProperty('--y2', yStart + '%')
+						rocket.style.setProperty('--y1', yPeak + '%')
+						rocket.style.setProperty(
+							'--t',
+							550 + Math.random() * 250 + 'ms'
+						)
+						layer.appendChild(rocket)
+
+						// cuando termina de subir, explota
+						rocket.addEventListener(
+							'animationend',
+							() => {
+								explodeAt(x, yPeak)
+								rocket.remove()
+							},
+							{ once: true }
+						)
+					}
+				}
+
+				// 💥 Explosión radial con partículas
+				function explodeAt(xPercent, yPercent) {
+					const particles = 28 // cantidad de chispas
+					const radiusMin = 70 // px
+					const radiusMax = 140 // px
+					const duration = 900 + Math.random() * 300
+
+					for (let i = 0; i < particles; i++) {
+						const p = document.createElement('div')
+						p.className = 'particle'
+						p.style.left = xPercent + '%'
+						p.style.top = yPercent + '%'
+						p.style.color =
+							COLORS[(Math.random() * COLORS.length) | 0]
+
+						// Dirección aleatoria
+						const angle =
+							Math.PI * 2 * (i / particles) +
+							(Math.random() * 0.6 - 0.3)
+						const dist =
+							radiusMin + Math.random() * (radiusMax - radiusMin)
+						const dx = Math.cos(angle) * dist
+						const dy = Math.sin(angle) * dist
+
+						p.style.setProperty('--dx', dx.toFixed(1))
+						p.style.setProperty('--dy', dy.toFixed(1))
+						p.style.setProperty('--bd', duration + 'ms')
+
+						layer.appendChild(p)
+						// eliminar partícula al terminar
+						p.addEventListener('animationend', () => p.remove(), {
+							once: true,
+						})
+					}
+				}
+			})()
+		</script>
+	</body>
+</html>
